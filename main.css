@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+    word-break: break-word;
     overflow-wrap: break-word;
     font-weight: 200;
   }
@@ -47,12 +48,13 @@ h1 {
     /*-webkit-animation: rotation 4s infinite linear;*/
   }
 h2 {
-    font-size: 3rem;
+    font-size: 2.2rem;
     line-height: 1.2;
     color: white;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
+    margin: 1rem 0 0.7rem 0;
   }
 h3{
     font-size: 1.5rem;  
@@ -89,7 +91,6 @@ h5 {
   }
 .nav-section {
   max-width: 17%;
-  word-break: break-all;
   overflow-wrap: break-word;
   padding: 0.5rem 1rem 0rem 1rem;
   justify-items: center;
@@ -98,17 +99,23 @@ h5 {
   "nav-div"
   "about-me-nav-div";
   grid-template-columns: 100%;
-  grid-template-rows: 4.3fr 1fr;
+  grid-template-rows: 4.2fr 1fr;
   }
   .nav-section h2 {
     padding-top: 2rem;
   }
   .nav-div{
     grid-area: nav-div;
+    place-self: start left;
+    margin: 0 1rem 0 1rem;
   }
   .about-me-nav-div{
     grid-area: about-me-nav-div;
     place-self: end left;
+    margin: 0 1rem 0 1rem;
+  }
+  .navigation {
+    border-radius: 15px;
   }
 .home {
     grid-area: home;
@@ -134,13 +141,12 @@ h5 {
   }
 .glass-effect{
   /*position: relative;*/
-  background-color: #00000021;
+  background-color: #ffffff21;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   background-blend-mode: overlay;
   transition: 1s ease-in-out;
-  
   }
   .glass-effect::before {
     content: "";
@@ -192,7 +198,7 @@ button:hover {
  
 }
 .button {
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
   font-size: 1rem;
   line-height: 2.5rem;
@@ -284,16 +290,16 @@ min-width: 100%;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   z-index: 1000;
 }
 .modal-content {
-  background-color: #000000c0;
+  background-color: #000000ce;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px);
   background-blend-mode: overlay;
   position: absolute;
   top: 50%;
@@ -314,7 +320,8 @@ min-width: 100%;
   transition: all 0.5s linear;
   border-radius: 15px;
   height: 100%;
-  stroke: #ffffff83;
+  width: 100%;
+  stroke: #ff000083;
 }
 .modal .button:hover rect {
   stroke-width: 5;
@@ -339,13 +346,18 @@ min-width: 100%;
 .close:hover {
   color: red;
 }
+.contact-form {
+ 
+}
 select{
-  width: 37%;
-  height: 100%;
+  width: 45%;
   cursor: pointer;
   font-size: 1rem;
+  color: #a3a3a3;
+  padding: 0.5rem;
+  border-radius: 15px;
 }
-select option {
+option {
   cursor: pointer;
 }
 form {
@@ -360,15 +372,22 @@ label {
   color: #fff; /* Text color for labels */
   font-size: 1.1rem;
 }
-
+input, textarea, select, option{
+background: transparent;
+width: 100%;
+}
+input {
+  /*border-bottom: 2px solid #e4e4e4;*/
+width: 100%;
+}
 input[type="text"],
 input[type="email"],
 textarea {
   width: 100%;
   padding: 10px;
   /*margin: 1rem;*/
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 5px solid #cccccc9c;
+  border-radius: 15px;
   height: 1rem;
 }
 textarea {
@@ -378,6 +397,9 @@ input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 textarea::placeholder {
     color: #aaa; /* Placeholder text color */
+}
+input,textarea {
+  color: white;
 }
 
 .required {
@@ -396,15 +418,17 @@ li{
   animation:showcontent 1s ease-in-out 1 forwards;
   /*animation:dropbounce 2s ease 0s 1 normal forwards;*/
 }
+li:hover {
+}
 li a {
   padding: 0.5rem;
   border-radius: 15px;
 }
-li a::
 li a:hover {
   color: #000000;
   background-color: rgba(0,0,0, 0.1);
   transition: 0.8s;
+  width: 100%;
 }
 li:active {
   -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
@@ -465,6 +489,53 @@ font-weight: 100;
 }
 .home-content {
 }
+.home-arrow {
+  position: absolute;
+  border-radius: 50%;
+  padding: 2rem;
+  bottom: 0rem;
+  z-index: 100000;
+  animation: bounce 2s infinite;
+}
+.down-arrow {
+  
+  bottom: 20%;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  text-decoration: none; /* Remove underline from the link */
+  z-index: 100000;
+}
+
+/* Style for the down arrow icon */
+.arrow-background {
+  display: inline-block;
+  background-color: #e60000; /* Background color */
+  border-radius: 50%; /* Create a circle */
+  padding: 10px; /* Adjust the size of the circle */
+  animation: bounce 2s infinite;
+}
+
+/* Style for the down arrow icon */
+.arrow-icon {
+  border: solid #00000096;
+  border-width: 0 20px 20px 0; /* Adjusted for 5 times bigger arrow */
+  display: inline-block;
+  padding: 25px; /* Adjusted for 5 times bigger arrow */
+  transform: rotate(45deg);
+}
+
+/* Animation keyframes for the bounce effect */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
 #home-background {
     position: fixed;
     top: 0;
@@ -477,7 +548,7 @@ font-weight: 100;
     z-index: -100;
 }
 .developer-content {
-  max-width: 20%;
+  max-width: 15%;
   /*align-self: flex-start;*/
 }
 .cool-image-slider{
@@ -485,8 +556,8 @@ font-weight: 100;
   left:0;
   top:0;
   /*transform: translate(-50%,-50%);*/
-  width: 60%;
-  height: 60%;
+  width: 65%;
+  height: 50%;
   min-width: 50%;
   min-height: 30%;
   padding:5rem;
@@ -599,9 +670,10 @@ font-weight: 100;
   max-width: 25%;
 }
 .music-vids-content {
-  max-width: 60%;
-  min-width: 60%;
-  min-height: 80%;
+  max-width: 55%;
+  min-width: 55%;
+  min-height: 65%;
+  max-height:65%;
   display: flex;
  flex-flow: row wrap;
   gap: 1rem;
@@ -622,6 +694,49 @@ iframe {
 }
 .gfx-content {
 max-width: 20%;
+}
+.gallery {
+ position: relative;
+  position: relative;
+  width: 50%;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+}
+.hero { aspect-ratio: 3/2; }
+
+.fadeIn { animation: fadeIn 0.5s; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+
+.btns {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.25rem;
+
+  & li {
+    max-width: 20%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
 .about-me-content {
@@ -651,13 +766,13 @@ max-width: 25%;
     -webkit-transform: rotate(0deg);
   }
   25% {
-    -webkit-transform: rotate(3deg);
+    -webkit-transform: rotate(5deg);
   }
   50% {
     -webkit-transform: rotate(0deg);
   }
   75% {
-    -webkit-transform: rotate(-3deg);
+    -webkit-transform: rotate(-5deg);
   }
   100% {
     -webkit-transform: rotate(0deg);
