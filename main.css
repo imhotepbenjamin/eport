@@ -451,8 +451,6 @@ font-weight: 100;
   top: 0.5rem;
   -webkit-animation: rotation 2s infinite linear;
 }
-#home {
-}
 #developer {
 }
 #music {
@@ -487,13 +485,16 @@ font-weight: 100;
   animation:showcontent 1s ease-in-out 1 forwards;
   
 }
+#home {
+  flex-direction: column;
+}
 .home-content {
 }
 .home-arrow {
-  position: absolute;
+  position: relative;
   border-radius: 50%;
   padding: 2rem;
-  bottom: 0rem;
+  bottom: 1rem;
   z-index: 100000;
   animation: bounce 2s infinite;
 }
