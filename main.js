@@ -96,3 +96,4 @@ function activate(e) {
 
 document.addEventListener('click', activate, false);
 document.addEventListener('animationend', reset, false);
+
